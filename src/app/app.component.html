@@ -1,26 +1,36 @@
+<table id="calcu">
+    <tbody><tr>
+        <td colspan="3"><input type="text" id="result"></td>
+        <!-- clr() function will call clr to clear all value -->
+        <td><input type="button" value="c" onclick="clr()"> </td>
+    </tr>
+    <tr>
+        <!-- create button and assign value to each button -->
+        <!-- dis("1") will call function dis to display value -->
+        <td><input type="button" value="1" > </td>
+        <td><input type="button" value="2" > </td>
+        <td><input type="button" value="3" > </td>
+        <td><input type="button" value="/" > </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="4" > </td>
+        <td><input type="button" value="5" > </td>
+        <td><input type="button" value="6" > </td>
+        <td><input type="button" value="*" > </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="7" > </td>
+        <td><input type="button" value="8" > </td>
+        <td><input type="button" value="9" > </td>
+        <td><input type="button" value="-" > </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="0" > </td>
+        <td><input type="button" value="." > </td>
+        <!-- solve function call function solve to evaluate value -->
+        <td><input type="button" value="="> </td>
 
-<h1>{{title}}</h1>
-<input type="text" [(ngModel)]="title" >
-<button (click) = "onHandleClick()" >click me</button>
-<br>
-<div *ngIf="title==='a'" >Hien thi</div>
-
-<input type="number" [(ngModel)]="a" > nhap so thu nhat
-<br>
-<input type="number" [(ngModel)]="b"> nhap so thu hai
-<br>
-<button (click) = "onSumClick()">get sum</button>
-<br>
-<br>
-<p>Cach dung ngFor</p>
-<span *ngFor="let item of arr" >{{item}}</span>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
+        <td><input type="button" value="+"> </td>
+    </tr>
+</tbody></table>
 <router-outlet></router-outlet>
