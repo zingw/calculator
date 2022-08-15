@@ -1,0 +1,26 @@
+
+<h1>{{title}}</h1>
+<input type="text" [(ngModel)]="title" >
+<button (click) = "onHandleClick()" >click me</button>
+<br>
+<div *ngIf="title==='a'" >Hien thi</div>
+
+<input type="number" [(ngModel)]="a" > nhap so thu nhat
+<br>
+<input type="number" [(ngModel)]="b"> nhap so thu hai
+<br>
+<button (click) = "onSumClick()">get sum</button>
+<br>
+<br>
+<p>Cach dung ngFor</p>
+<span *ngFor="let item of arr" >{{item}}</span>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>
