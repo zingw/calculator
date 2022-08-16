@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import { Injectable} from '@angular/core'
+import {DOCUMENT} from "@angular/common";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -29,9 +31,6 @@ export class AppComponent {
     console.log(event);
   }
 
-  constructor() {
-  }
-
   getTime() {
     this.timeData = new Date();
   }
@@ -47,8 +46,11 @@ export class AppComponent {
   }
 
   onDeleteSampleTextOneByOne(){
-    this.sampleText = this.sampleText.substring(0,this.sampleText.length-1);
+    if(this.sampleText.length>0){
+      this.sampleText = this.sampleText.substring(0,this.sampleText.length-1);
+    }else alert("Không còn gì để xóa! hãy thêm chữ!")
   }
+
 }
 
 
