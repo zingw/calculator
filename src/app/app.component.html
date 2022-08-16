@@ -1,0 +1,26 @@
+<p>Test Place Holder</p>
+<input type="text" [placeholder]="suggest">
+<br>
+
+<p>Test Data Binding</p>
+<input type="text" (click) = "clickToSeeHello()" value="ấn vào xem có gì hot">
+<br>
+
+<p>Test Input Event</p>
+<input type="text" (input) = "onInput($event)">
+<br>
+
+<p>Test Change Event</p>
+<input type="text" (change)="onChange($event)">
+<br>
+
+<p>Test Two Way Binding</p>
+<h4>{{message}}</h4>
+<input type="text" [(ngModel)]="message">
+
+<p>Test get Time</p>
+<input type="button" value="click me to display Time" (click)="getTime()" >
+<br>
+<input type="text" [value]="timeData">
+<br>
+
