@@ -1,15 +1,8 @@
-<input type="text" readonly style="width: 100%;">
-<br>
-<br>
-<input type="text" readonly style="width: 100%;">
-<br>
-<br>
 
 <div
 *ngFor="let item of arr1; index as i; "
-[ngStyle]="{'display': i>0 && (i + 1)%4 == 0 ? 'block' : 'inline'}"
 >
-<button class="btn"  (click)="getValue(item)" >{{item}}</button>
+<button class="btn" >{{item}}</button>
 </div>
 
 
