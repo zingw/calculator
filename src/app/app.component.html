@@ -1,26 +1,26 @@
+<p>Test Place Holder</p>
+<input type="text" [placeholder]="suggest">
+<br>
 
-<h1>{{title}}</h1>
-<input type="text" [(ngModel)]="title" >
-<button (click) = "onHandleClick()" >click me</button>
+<p>Test Data Binding</p>
+<input type="text" (click) = "clickToSeeHello()" value="ấn vào xem có gì hot">
 <br>
-<div *ngIf="title==='a'" >Hien thi</div>
 
-<input type="number" [(ngModel)]="a" > nhap so thu nhat
+<p>Test Input Event</p>
+<input type="text" (input) = "onInput($event)">
 <br>
-<input type="number" [(ngModel)]="b"> nhap so thu hai
-<br>
-<button (click) = "onSumClick()">get sum</button>
-<br>
-<br>
-<p>Cach dung ngFor</p>
-<span *ngFor="let item of arr" >{{item}}</span>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<p>Test Change Event</p>
+<input type="text" (change)="onChange($event)">
+<br>
 
-<router-outlet></router-outlet>
+<p>Test Two Way Binding</p>
+<h4>{{message}}</h4>
+<input type="text" [(ngModel)]="message">
+
+<p>Test get Time</p>
+<input type="button" value="click me to display Time" (click)="getTime()" >
+<br>
+<input type="text" [value]="timeData">
+<br>
+
