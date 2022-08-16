@@ -1,48 +1,49 @@
-<p>Test Place Holder</p>
-<input type="text" [placeholder]="suggest">
-<br>
+<div id="top" >
+  <p>Test Place Holder</p>
+  <input type="text" [placeholder]="suggest">
+  <br>
 
-<p>Test Data Binding</p>
-<input type="text" (click)="clickToSeeHello()" value="ấn vào xem có gì hot">
-<br>
+  <p>Test Data Binding</p>
+  <button (click)="clickToSeeHello()" > Ấn vào đây xem có gì hot</button>
+  <br>
 
-<p>Test Input Event</p>
-<input type="text" (input)="onInput($event)">
-<br>
+  <p>Test Input Event</p>
+  <input type="text" (input)="onInput($event)">
+  <br>
 
-<p>Test Change Event</p>
-<input type="text" (change)="onChange($event)">
-<br>
+  <p>Test Change Event</p>
+  <input type="text" (change)="onChange($event)">
+  <br>
 
-<p>Test Two Way Binding</p>
-<h4>{{message}}</h4>
-<input type="text" [(ngModel)]="message">
+  <p>Test Two Way Binding</p>
+  <h4>{{message}}</h4>
+  <input type="text" [(ngModel)]="message">
 
-<p>Test get Time</p>
-<input type="button" value="click me to display Time" (click)="getTime()">
-<p>{{timeData}}</p>
-<br>
-
-
-<h1>Test ng if</h1>
-<input type="text" [(ngModel)]="x">
-<h3>cách 1</h3>
-<div *ngIf="x==='1132'"> This is content when you write 1132 on the box</div>
-<div *ngIf="x!=='1132'">{{x}} </div>
-
-<h3>cách 2</h3>
-<div [hidden]="x!=='1132'"> This is content when you write 1132 on the box</div>
-<div [hidden]="x==='1132'">{{x}} </div>
-
-<!--khi ấn vào "Hide and Un hide",nếu tên đã hiện thì tắt, nếu tên ko hiện thì bật-->
-<h3 (click)="onToggle()">Hide & un hide</h3>
-<div *ngIf="toggle">1. When you press button above this line will disappear</div>
-<br>
-<div *ngIf="toggle">2.ngIf could cause effect on more than one element</div>
+  <p>Test get Time</p>
+  <input type="button" value="click me to display Time" (click)="getTime()">
+  <p>{{timeData}}</p>
+  <br>
 
 
-<!--nếu nhập vào 1132 thì báo nhập đúng, ko thì báo nhập sai, chưa nhập thì báo là chưa nhập-->
-<h3>Tùy vào việc bạn nhập hay không nhập, dòng dưới này sẽ thay đổi</h3>
-<div>{{showValue()}} </div>
+  <h1>*ngIF - thử gõ 1132 vào ô bên dưới </h1>
+  <input type="text" [(ngModel)]="x">
+  <h3>Ẩn hoặc hiện tùy vào việc nhập đúng hay không</h3>
+  <div *ngIf="x==='1132'"> This is content when you write 1132 on the box</div>
+  <div *ngIf="x!=='1132'">{{x}} </div>
+
+  <h3>Ẩn hoặc hiện tùy vào việc nhập đúng hay không, cách khác</h3>
+  <div [hidden]="x!=='1132'"> This is content when you write 1132 on the box</div>
+  <div [hidden]="x==='1132'">{{x}} </div>
+
+  <!--khi ấn vào "Hide and Un hide",nếu tên đã hiện thì tắt, nếu tên ko hiện thì bật-->
+  <h3 (click)="onToggle()">Hide & un hide</h3>
+  <div *ngIf="toggle">1. When you press button above this line will disappear</div>
+  <br>
+  <div *ngIf="toggle">2.ngIf could cause effect on more than one element</div>
 
 
+  <!--nếu nhập vào 1132 thì báo nhập đúng, ko thì báo nhập sai, chưa nhập thì báo là chưa nhập-->
+  <h3>Tùy vào việc bạn nhập hay không nhập, đúng hay không thì dòng dưới này sẽ thay đổi</h3>
+  <div>{{showValue()}} </div>
+
+</div>
