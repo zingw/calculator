@@ -4,44 +4,13 @@
 
     </head>
     <body>
-<!--        <table id="calculator">-->
-<!--            <tbody><tr>-->
-<!--                <td colspan="3"><input type="text" id="input" class="btn" [(ngModel)]="input"></td>-->
-<!--              <td colspan="3"><input type="text" id="result" class="btn" [(ngModel)]="result"></td>-->
-
-<!--              <td><input type="button" value="c" class="btn" (click)="remove()"></td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><input type="button" value="1" class="btn" (click)="pressNum('1')" > </td>-->
-<!--                <td><input type="button" value="2" class="btn" (click)="pressNum('2')"> </td>-->
-<!--                <td><input type="button" value="3" class="btn" (click)="pressNum('3')"> </td>-->
-<!--                <td><input type="button" value="/" class="btn" (click)="pressNum('/')"> </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><input type="button" value="4" class="btn" (click)="pressNum('4')"> </td>-->
-<!--                <td><input type="button" value="5" class="btn" (click)="pressNum('5')"> </td>-->
-<!--                <td><input type="button" value="6" class="btn" (click)="pressNum('6')"> </td>-->
-<!--                <td><input type="button" value="*" class="btn" (click)="pressNum('*')"> </td>-->
-<!--            </tr>-->
-<!--            <tr>-->
-<!--                <td><input type="button" value="7" class="btn" (click)="pressNum('7')"> </td>-->
-<!--                <td><input type="button" value="8" class="btn" (click)="pressNum('8')"> </td>-->
-<!--                <td><input type="button" value="9" class="btn" (click)="pressNum('9')"> </td>-->
-<!--                <td><input type="button" value="-" class="btn" (click)="pressNum('-')"> </td>-->
-<!--            </tr>-->
-<!--            <tr >-->
-<!--                <td  *ngFor="let item of arr1; index as i;"><input type="button" class="btn" [value]="item" (click)="getResult()"></td>-->
-
-<!--            </tr>-->
-<!--        </tbody></table>-->
-
-<div style="display: flex">
-  <div *ngFor="let item of arr1; index as i;" >
-    <input type="button" class="btn" [value]="item" (click)="getResult()">
-    {{i%4}}
-    <br *ngIf="i%4 === 0">
-  </div>
+<div
+  *ngFor="let item of arr1; index as i; "
+  [ngStyle]="{'display': i>0 && (i + 1)%4 == 0 ? 'block' : 'inline'}"
+>
+  <button class="btn"  (click)="getValue(item)" >{{item}}</button>
 </div>
+
         <router-outlet></router-outlet>
     </body>
 </html>

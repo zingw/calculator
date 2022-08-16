@@ -73,5 +73,10 @@ export class AppComponent {
   remove() {
     this.input = this.input.substring(0, this.input.length - 1);
   }
+
+  getValue(item: string) {
+    console.log(item);
+
+  }
 }
 
