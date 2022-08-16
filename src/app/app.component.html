@@ -46,4 +46,8 @@
   <h3>Tùy vào việc bạn nhập hay không nhập, đúng hay không thì dòng dưới này sẽ thay đổi</h3>
   <div>{{showValue()}} </div>
 
+  <h3>Test xóa từng chữ một</h3>
+  <input type="text" [(ngModel)]="sampleText" style="width:10cm">
+  <button (click)="onDeleteSampleTextOneByOne()" >BACKSPACE</button>
+
 </div>

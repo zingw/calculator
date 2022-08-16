@@ -16,6 +16,7 @@ export class AppComponent {
   SPACE = "--"
   x = '';
   toggle = true;
+  sampleText = 'Le Viet Dasdfasduc';
   clickToSeeHello(){
     alert('Hi my name is ' + this.name + " and I'm living in " + this.address )
   }
@@ -43,6 +44,10 @@ export class AppComponent {
 
   onToggle() {
     this.toggle = !this.toggle;
+  }
+
+  onDeleteSampleTextOneByOne(){
+    this.sampleText = this.sampleText.substring(0,this.sampleText.length-1);
   }
 }
 
