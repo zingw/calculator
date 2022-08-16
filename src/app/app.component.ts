@@ -15,7 +15,7 @@ export class AppComponent {
   timeData :any;
   SPACE = "--"
   x = '';
-  showStatus = true;
+  toggle = true;
   clickToSeeHello(){
     alert('Hi my name is ' + this.name + " and I'm living in " + this.address )
   }
@@ -32,30 +32,18 @@ export class AppComponent {
   }
 
   getTime() {
-    // gán giờ hiện tại cho biến time
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth();
-    let day = date.getDay();
-    let hour = date.getHours();
-    let minutes = date.getMinutes();
-    let sec = date.getSeconds();
-    let milisecs =  date.getMilliseconds()
-
-    this.timeData = date;
-    console.log("Time generate Success!!!")
+    this.timeData = new Date();
   }
 
   showValue(): string {
    if(this.x === '1132') return 'You typed 1132 so you see this';
-   else if(this.x === '') return 'You did  not type anything yet';
+   else if(this.x.trim()=='') return 'You did  not type anything yet';
    else return 'You did not type correctly';
   }
 
-  toggleShow():boolean{
-    return this.showStatus?false:true;
+  onToggle() {
+    this.toggle = !this.toggle;
   }
-
 }
 
 
