@@ -7,10 +7,10 @@
         <table id="calculator">
             <tbody><tr>
                 <td colspan="3"><input type="text" id="result" class="btn"></td>
-                <td><input type="button" value="c" class="btn"> </td>
+                <td><input type="button" value="c" class="btn" [(ngModel)]="input" )] > </td>
             </tr>
             <tr>
-                <td><input type="button" value="1" class="btn"> </td>
+                <td><input type="button" value="1" class="btn" (click)="pressNum('1')" > </td>
                 <td><input type="button" value="2" class="btn"> </td>
                 <td><input type="button" value="3" class="btn"> </td>
                 <td><input type="button" value="/" class="btn"> </td>
@@ -31,7 +31,7 @@
                 <td><input type="button" value="0" class="btn"> </td>
                 <td><input type="button" value="." class="btn" > </td>
                 <td><input type="button" value="=" class="btn"> </td>
-        
+
                 <td><input type="button" value="+" class="btn"> </td>
             </tr>
         </tbody></table>
