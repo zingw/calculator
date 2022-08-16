@@ -14,6 +14,8 @@ export class AppComponent {
   message = 'Change me by update text Box Below';
   timeData :any;
   SPACE = "--"
+  x = '';
+  isShow = true;
   clickToSeeHello(){
     alert('Hi my name is ' + this.name + " and I'm living in " + this.address )
   }
@@ -44,6 +46,13 @@ export class AppComponent {
     console.log("Time generate Success!!!")
   }
 
+  showvalue(): string {
+   return  this.x==='1132' ? ' This is content when you write 1132 on the box' : this.x;
+  }
+
+  fncIsShow(b: boolean) {
+    this.isShow = !b;
+  }
 }
 
 

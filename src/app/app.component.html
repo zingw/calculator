@@ -24,3 +24,17 @@
 <input type="text" [value]="timeData">
 <br>
 
+<p>Test ng if</p>
+<input type="text" [(ngModel)]="x">
+<h3>cách 1</h3>
+<div *ngIf="x==='1132'" > This is content when you write 1132 on the box</div>
+<div *ngIf="x!=='1132'" >{{x}} </div>
+
+<h3>cách 2</h3>
+<div [hidden]="x!=='1132'" > This is content when you write 1132 on the box</div>
+<div [hidden]="x==='1132'" >{{x}} </div>
+
+<h3 (click)="fncIsShow(false)">cách 3</h3>
+<div *ngIf=isShow>{{x==='1132' ? ' This is content when you write 1132 on the box' : x }} </div>
+<h3>cách 4</h3>
+<div>{{showvalue()}} </div>
