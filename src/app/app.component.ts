@@ -15,7 +15,7 @@ export class AppComponent {
   timeData :any;
   SPACE = "--"
   x = '';
-  isShow = true;
+  showStatus = true;
   clickToSeeHello(){
     alert('Hi my name is ' + this.name + " and I'm living in " + this.address )
   }
@@ -46,13 +46,16 @@ export class AppComponent {
     console.log("Time generate Success!!!")
   }
 
-  showvalue(): string {
-   return  this.x==='1132' ? ' This is content when you write 1132 on the box' : this.x;
+  showValue(): string {
+   if(this.x === '1132') return 'You typed 1132 so you see this';
+   else if(this.x === '') return 'You did  not type anything yet';
+   else return 'You did not type correctly';
   }
 
-  fncIsShow(b: boolean) {
-    this.isShow = !b;
+  toggleShow():boolean{
+    return this.showStatus?false:true;
   }
+
 }
 
 

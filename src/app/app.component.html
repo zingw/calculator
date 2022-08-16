@@ -3,11 +3,11 @@
 <br>
 
 <p>Test Data Binding</p>
-<input type="text" (click) = "clickToSeeHello()" value="ấn vào xem có gì hot">
+<input type="text" (click)="clickToSeeHello()" value="ấn vào xem có gì hot">
 <br>
 
 <p>Test Input Event</p>
-<input type="text" (input) = "onInput($event)">
+<input type="text" (input)="onInput($event)">
 <br>
 
 <p>Test Change Event</p>
@@ -19,7 +19,7 @@
 <input type="text" [(ngModel)]="message">
 
 <p>Test get Time</p>
-<input type="button" value="click me to display Time" (click)="getTime()" >
+<input type="button" value="click me to display Time" (click)="getTime()">
 <br>
 <input type="text" [value]="timeData">
 <br>
@@ -27,14 +27,20 @@
 <p>Test ng if</p>
 <input type="text" [(ngModel)]="x">
 <h3>cách 1</h3>
-<div *ngIf="x==='1132'" > This is content when you write 1132 on the box</div>
-<div *ngIf="x!=='1132'" >{{x}} </div>
+<div *ngIf="x==='1132'"> This is content when you write 1132 on the box</div>
+<div *ngIf="x!=='1132'">{{x}} </div>
 
 <h3>cách 2</h3>
-<div [hidden]="x!=='1132'" > This is content when you write 1132 on the box</div>
-<div [hidden]="x==='1132'" >{{x}} </div>
+<div [hidden]="x!=='1132'"> This is content when you write 1132 on the box</div>
+<div [hidden]="x==='1132'">{{x}} </div>
 
-<h3 (click)="fncIsShow(false)">cách 3</h3>
-<div *ngIf=isShow>{{x==='1132' ? ' This is content when you write 1132 on the box' : x }} </div>
-<h3>cách 4</h3>
-<div>{{showvalue()}} </div>
+<!--khi ấn vào "Hide and Un hide", nếu tên đã hiện thì tắt, nếu tên ko hiện thì bật-->
+<h3 (click)="toggleShow()">Hide and un hide</h3>
+<div> Le Viet Duc</div>
+
+
+<!--nếu nhập vào 1132 thì báo nhập đúng, ko thì báo nhập sai, chưa nhập thì báo là chưa nhập-->
+<h3>V4</h3>
+<div>{{showValue()}} </div>
+
+
