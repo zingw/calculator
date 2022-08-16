@@ -1,0 +1,23 @@
+.loopButton{
+  width: 60px;
+  height: 40px;
+}
+.displayBox{
+  width:232px;
+  height: 20px;
+}
+#header{
+  width:240px;
+  align-content: normal;
+}
+#getResult{
+  width:240px;
+  height: 40px;
+}
+#body{
+  transform: scale(2.1);
+  transform-origin: 0 0;
+  margin: auto;
+  vertical-align: middle;
+}
+

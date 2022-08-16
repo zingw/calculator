@@ -1,9 +1,16 @@
-
-<div
-*ngFor="let item of arr1; index as i; "
->
-<button class="btn" >{{item}}</button>
+<div id="body">
+      <div id="header">CASIO FX 500MS</div>
+      <input class="displayBox" type="text" placeholder="INPUT" ><br>
+      <input class="displayBox" type="text" placeholder="RESULT" ><br>
+      <div *ngFor="let row of rows" style="width: fit-content" >
+        <button class="loopButton" (click)="bindValueToInput(row.col1)">{{row.col1}}</button>
+        <button class="loopButton" (click)="bindValueToInput(row.col2)">{{row.col2}}</button>
+        <button class="loopButton" (click)="bindValueToInput(row.col3)">{{row.col3}}</button>
+        <button class="loopButton" (click)="bindValueToInput(row.col4)">{{row.col4}}</button>
+      </div>
+      <button id="getResult" (click)="getResult()">=</button>
 </div>
+
 
 
 
