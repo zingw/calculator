@@ -1,7 +1,7 @@
 <div id="body">
       <div id="header">CASIO FX 500MS</div>
-      <input class="displayBox" type="text" placeholder="INPUT" [(ngModel)]="input"><br>
-      <input class="displayBox" type="text" placeholder="RESULT" [value]="result"><br>
+      <input class="displayBox" type="text" placeholder="INPUT" [(ngModel)]="input" style="direction: ltr"><br>
+      <input class="displayBox" type="text" placeholder="RESULT" [value]="result" style="direction: rtl" ><br>
       <div *ngFor="let row of rows" style="width: fit-content" >
         <button class="loopButton" (click)="bindValueToInput(row.col1)">{{row.col1}}</button>
         <button class="loopButton" (click)="bindValueToInput(row.col2)">{{row.col2}}</button>

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {evaluate} from "mathjs";
+import {evaluate, string} from "mathjs";
 
 export interface Row {
   col1: string;
@@ -16,8 +16,9 @@ export interface Row {
 
 export class AppComponent {
   input = '';
-  result = 10;
-  INVALID_ERR = "INVALID_ERR";
+  result = '10';
+  INVALID_ERROR = "INVALID_ERROR";
+  MATH_ERROR = "MATH_ERROR";
   // @ts-ignore
   rows: Row[] = [
     {col1: '7', col2: '8', col3: '9', col4: '/'},
@@ -34,7 +35,7 @@ export class AppComponent {
     if (cellData == 'C') {
       this.input = '';
     } else {
-      alert(this.INVALID_ERR)
+      alert(this.INVALID_ERROR)
     }
   }
 
@@ -108,16 +109,21 @@ export class AppComponent {
   }
 
   getResult() {
+    if(this.input.lastIndexOf('/0')>0){
+      this.result = this.MATH_ERROR;
+      return;
+    }
     // nếu input chưa có nhập gì thì sẽ trả về 0.
     if (this.input.trim() === '') {
-      this.result = 0;
+      this.result = '';
       return;
     }
     // nếu viết thừa OP thì sẽ tự lược đi OP ở cuối sau đó tính như thường, thay vì báo lỗi.
     if (!this.lastCharInputIsNumber()) {
       this.input = this.input.substring(0, this.input.length - 1)
     }
-    this.result = eval(this.input);
+    this.result = eval(this.input).toString();
+    this.input = this.result.toString();
   }
 }
 
