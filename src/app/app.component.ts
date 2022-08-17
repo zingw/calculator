@@ -15,8 +15,8 @@ export interface Row {
 })
 
 export class AppComponent {
-  input = '';
-  result = '10';
+  input = '0';
+  result = '0';
   INVALID_ERROR = "INVALID_ERROR";
   MATH_ERROR = "MATH_ERROR";
   // @ts-ignore
@@ -33,17 +33,20 @@ export class AppComponent {
       return;
     }
     if (cellData == 'C') {
-      this.input = '';
+      this.input = '0';
+      this.result = '0'
     } else {
-      alert(this.INVALID_ERROR)
+      console.log("error");
     }
   }
 
   isValidToAdd(cellData: string): boolean {
     /**
      * Kiểm tra chuỗi hiện tại:
-     *      Nếu null -> cho add + - num
-     *      Nếu không null -> kiểm tra kí tự cuôối
+     *
+     *      Nếu '0' -> cho add + - num
+     *                  và tối đa 1 số 0, sau đó phải là dot. rồi sau đó thì là số
+     *      Nếu khác '0' -> kiểm tra kí tự cuôối
      *          Nếu là số
      *              kiểm tra có phải số thập phân hay ko ?
      *                  có : ->  add OP and num
@@ -56,11 +59,14 @@ export class AppComponent {
     }
 
     if (currInput.trim() == '') {
-      if (this.isNumber(cellData) || (cellData == '+') || cellData == '-') {
+      if (this.isNumber(cellData) && cellData !== '0'  || (cellData == '+') || cellData == '-') {
         return true;
       }
     }
     if (currInput.trim() !== '') {
+      if(cellData == '0' && this.input=='0'){
+        return false;
+      }
       if (this.lastCharInputIsNumber()) {
         if (this.lastNumberIsDecimal() && this.isOP(cellData) || this.isNumber(cellData) ) {
           return true;
@@ -115,7 +121,8 @@ export class AppComponent {
     }
     // nếu input chưa có nhập gì thì sẽ trả về 0.
     if (this.input.trim() === '') {
-      this.result = '';
+      this.result = '0';
+      this.input = '0'
       return;
     }
     // nếu viết thừa OP thì sẽ tự lược đi OP ở cuối sau đó tính như thường, thay vì báo lỗi.
