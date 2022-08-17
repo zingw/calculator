@@ -35,8 +35,6 @@ export class AppComponent {
     if (cellData == 'C') {
       this.input = '0';
       this.result = '0'
-    } else {
-      console.log("error");
     }
   }
 
@@ -44,7 +42,7 @@ export class AppComponent {
     /**
      * Kiểm tra chuỗi hiện tại:
      *
-     *      Nếu '0' -> cho add + - num
+     *      Nếu '0' -> bỏ 0 và cho add + - num
      *                  và tối đa 1 số 0, sau đó phải là dot. rồi sau đó thì là số
      *      Nếu khác '0' -> kiểm tra kí tự cuôối
      *          Nếu là số
@@ -53,21 +51,25 @@ export class AppComponent {
      *                  không: -> cho add tất
      *          Nếu là OP hoặc dot : chỉ cho add số
      */
-    const currInput = this.input;
+    let currInput = this.input;
     if(cellData == 'C'){
       return false;
     }
 
-    if (currInput.trim() == '') {
+    if (currInput == '0') {
       if (this.isNumber(cellData) && cellData !== '0'  || (cellData == '+') || cellData == '-') {
-        return true;
+        this.input = cellData;
+        return false;
       }
     }
-    if (currInput.trim() !== '') {
-      if(cellData == '0' && this.input=='0'){
+    if (currInput !== '') {
+      if(cellData == '0' && currInput=='0'){
         return false;
       }
       if (this.lastCharInputIsNumber()) {
+        if(this.lastCharInputIsZero() && this.input.length>1 && cellData !== '.'){
+          return false;
+        }
         if (this.lastNumberIsDecimal() && this.isOP(cellData) || this.isNumber(cellData) ) {
           return true;
         }
@@ -84,6 +86,9 @@ export class AppComponent {
 
   lastCharInputIsNumber(): boolean {
     return !isNaN(Number(this.input.charAt(this.input.length - 1)));
+  }
+  lastCharInputIsZero(){
+    return this.input.charAt(this.input.length-1)=='0';
   }
 
   lastNumberIsDecimal(): boolean {
@@ -115,21 +120,15 @@ export class AppComponent {
   }
 
   getResult() {
-    if(this.input.lastIndexOf('/0')>0){
-      this.result = this.MATH_ERROR;
-      return;
-    }
-    // nếu input chưa có nhập gì thì sẽ trả về 0.
-    if (this.input.trim() === '') {
-      this.result = '0';
-      this.input = '0'
-      return;
-    }
-    // nếu viết thừa OP thì sẽ tự lược đi OP ở cuối sau đó tính như thường, thay vì báo lỗi.
     if (!this.lastCharInputIsNumber()) {
       this.input = this.input.substring(0, this.input.length - 1)
     }
-    this.result = eval(this.input).toString();
+    if(eval(this.input)=='Infinity'){
+      this.input = '0';
+      this.result = 'MATH ERROR';
+      return;
+    }
+    this.result = eval(this.input);
     this.input = this.result.toString();
   }
 }
