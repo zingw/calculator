@@ -67,8 +67,11 @@ export class AppComponent {
         return false;
       }
       if (this.lastCharInputIsNumber()) {
-        if(this.lastCharInputIsZero() && this.input.length>1 && cellData !== '.'){
+        if(this.lastNumberIsZeroWithOperatorInFront() && cellData !=='.'){
           return false;
+        }
+        if(this.lastNumberIsDecimalEndByZero()){
+          return true;
         }
         if (this.lastNumberIsDecimal() && this.isOP(cellData) || this.isNumber(cellData) ) {
           return true;
@@ -87,10 +90,13 @@ export class AppComponent {
   lastCharInputIsNumber(): boolean {
     return !isNaN(Number(this.input.charAt(this.input.length - 1)));
   }
-  lastCharInputIsZero(){
-    return this.input.charAt(this.input.length-1)=='0';
+  lastNumberIsDecimalEndByZero(){
+    return this.input.charAt(this.input.length-1)=='0' && this.lastNumberIsDecimal();
   }
-
+  lastNumberIsZeroWithOperatorInFront() {
+    let lastZeroPos = this.input.lastIndexOf("0");
+    return this.isOP(this.input.charAt(this.input.length - 2)) && lastZeroPos == this.input.length - 1;
+  }
   lastNumberIsDecimal(): boolean {
     const currInput = this.input;
     let indexOfDot = currInput.lastIndexOf('.');
