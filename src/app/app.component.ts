@@ -129,7 +129,7 @@ export class AppComponent {
     if (!this.lastCharInputIsNumber()) {
       this.input = this.input.substring(0, this.input.length - 1)
     }
-    if(eval(this.input)=='Infinity'){
+    if(eval(this.input)=='Infinity' || eval(this.input) == '-Infinity'){
       this.input = '0';
       this.result = 'MATH ERROR';
       return;
